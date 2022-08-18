@@ -1,0 +1,35 @@
+package:
+  name: find_run_diff
+  version: 0.0.4
+source:
+  sha256: 5e25aa04c11f2911b0fdb920e1347bda5f166fc723786b366a9e953ee90f46bb
+  url: https://files.pythonhosted.org/packages/ed/89/2798ee782363ddae69f3d332a4ccb2c094652698e0a13aca0a15154df3ac/find_run_diff-0.0.4.tar.gz
+about:
+  dev_url: https://kimleeng.github.io
+  doc_url: https://kimleeng.github.io
+  home: https://kimleeng.github.io
+  license: Apache Software
+  license_family: APACHE
+  summary: Checks two directories for subdirectories with minor name variations, the
+    find the subdirectories which appear to be missing in the targer directory.
+build:
+  noarch: python
+  number: '0'
+  script: '{{ PYTHON }} -m pip install . -vv'
+extra:
+  recipe-maintainers:
+  - kimleeng
+requirements:
+  host:
+  - pip
+  - python
+  - packaging
+  - python-dotenv
+  run:
+  - pip
+  - python
+  - packaging
+  - python-dotenv
+test:
+  imports:
+  - find_run_diff
