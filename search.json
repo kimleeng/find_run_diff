@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "nbdev_startup.html",
+    "href": "nbdev_startup.html",
+    "title": "find_run_diff",
+    "section": "",
+    "text": "Flow on saving a notebook change.\nnbdev_prepare\non deploy\n\nnbdev_bump_version\nnbdev_prepare\nnbdev_pypi Requirements here are assumed to be handled in pip.\n\n\nnbdev_conda\nUsing settings.ini it’ll use requirements for checking. You will need to add alternative channels conda config --add channels conda-forge for it to build while looking at those locations as well\n\n\nnbdev_release_git\n\n\n\nUsing\nhttps://nbdev.fast.ai/release.html\nnbdev_changelog makes a chaneglog from the git repo’s issues. You’ll need a token in order to use this accordingly.\n\n\nRecommended default dirs\n./input/ # Used as a placeholder for running\n./output/ # Used as a placeholder for output\n- ./config/\n    - config.default.env\n    - config.env # in .gitignore\n./services/ # For use with systemd, this is intended for running and monitoring the task on a routine and automated basic."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Project name here",
+    "section": "",
+    "text": "This file will become your README and also the index of your documentation."
+  },
+  {
+    "objectID": "index.html#install",
+    "href": "index.html#install",
+    "title": "Project name here",
+    "section": "Install",
+    "text": "Install\npip install find_run_diff"
+  },
+  {
+    "objectID": "index.html#how-to-use",
+    "href": "index.html#how-to-use",
+    "title": "Project name here",
+    "section": "How to use",
+    "text": "How to use\nFill me in please! Don’t forget code examples:\n\n!frd\n\nHello World!"
+  },
+  {
+    "objectID": "core.html",
+    "href": "core.html",
+    "title": "module name here",
+    "section": "",
+    "text": "set_env_variables\n\n set_env_variables (config_path)\n\n\n\n\nfind_runs\n\n find_runs (dir, regex)\n\n\n\n\nfind_runs_in_source_but_not_dest\n\n find_runs_in_source_but_not_dest (source_dir, source_regex,\n                                   destination_dir, destination_regex,\n                                   output_file)\n\n\n\n\ncli\n\n cli (source_dir:str='./input', dest_dir:str='./output',\n      source_regex:str='^folder([0-9]+)$',\n      dest_regex:str='^folder_([0-9]+)$',\n      output_file:str='$FRD_DEST_DIR/output.txt')\n\nMove all files in source_dir to dest_dir\n\n\n\n\n\n\n\n\n\n\nType\nDefault\nDetails\n\n\n\n\nsource_dir\nstr\n./input\nPath to source directory\n\n\ndest_dir\nstr\n./output\nPath to destination directory\n\n\nsource_regex\nstr\n^folder([0-9]+)$\nRegex to match source directory\n\n\ndest_regex\nstr\n^folder_([0-9]+)$\nRegex to match destination directory\n\n\noutput_file\nstr\n$FRD_DEST_DIR/output.txt\nPath to output file\n\n\n\n\ncli(os.environ.get(\"FRD_SOURCE_DIR\",\"./input\"), os.environ.get(\"FRD_DEST_DIR\",\"./input/\"), os.environ.get(\"FRD_SOURCE_REGEX\"), os.environ.get(\"FRD_DEST_REGEX\"), os.environ.get(\"FRD_OUTPUT_FILE\"))\n\nHello World!"
+  },
+  {
+    "objectID": "CHANGELOG.html",
+    "href": "CHANGELOG.html",
+    "title": "find_run_diff",
+    "section": "",
+    "text": "Testing"
+  }
+]

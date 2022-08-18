@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.75">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>find_run_diff – nbdev_startup</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: 1;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">find_run_diff</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/kimleeng/find_run_diff/"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">(Untitled)</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Project name here</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./core.html" class="sidebar-item-text sidebar-link">module name here</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#developing-a-python-script" id="toc-developing-a-python-script" class="nav-link active" data-scroll-target="#developing-a-python-script">Developing a python script</a>
+  <ul>
+  <li><a href="#things-youll-need-to-get-started" id="toc-things-youll-need-to-get-started" class="nav-link" data-scroll-target="#things-youll-need-to-get-started">Things you’ll need to get started</a></li>
+  <li><a href="#first-steps" id="toc-first-steps" class="nav-link" data-scroll-target="#first-steps">First steps</a></li>
+  <li><a href="#for-pypi-package-deployment." id="toc-for-pypi-package-deployment." class="nav-link" data-scroll-target="#for-pypi-package-deployment.">For PyPi package deployment.</a></li>
+  <li><a href="#for-conda-package-deployment" id="toc-for-conda-package-deployment" class="nav-link" data-scroll-target="#for-conda-package-deployment">For Conda package deployment</a></li>
+  </ul></li>
+  <li><a href="#flow-on-saving-a-notebook-change." id="toc-flow-on-saving-a-notebook-change." class="nav-link" data-scroll-target="#flow-on-saving-a-notebook-change.">Flow on saving a notebook change.</a></li>
+  <li><a href="#using" id="toc-using" class="nav-link" data-scroll-target="#using">Using</a></li>
+  <li><a href="#recommended-default-dirs" id="toc-recommended-default-dirs" class="nav-link" data-scroll-target="#recommended-default-dirs">Recommended default dirs</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/kimleeng/find_run_diff/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="developing-a-python-script" class="level1">
+<h1>Developing a python script</h1>
+<p>This repo is meant to be a guide for developing a python library using nbdev as a framework. This is made with focus on development at SSI and is a way to encourage us to make more reusable code that can be made available to the community via pypi and conda as well. A strong focus is put into documentation which led to the choice of nbdev as a framework. If you want additional information I recommend the reference material at https://nbdev.fast.ai/tutorial.html</p>
+<section id="things-youll-need-to-get-started" class="level2">
+<h2 class="anchored" data-anchor-id="things-youll-need-to-get-started">Things you’ll need to get started</h2>
+<ul>
+<li>A github account</li>
+<li><code>conda</code> installed (preferably with <code>mamba</code>)</li>
+<li>A github user <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token">token</a> with repo access (this is for GitHub releases via nbdev_release_gh)
+<ul>
+<li>This function makes use of the <code>gh</code> cli tool and helps create a automatic CHANGELOG.md file from your github issues and PRs. It also creates a release on github with the version number from your <code>settings.ini</code> file. This is a great way to keep track of changes and to make your code more accessible to the community. It’s also a great way to get yourself more familiar with github issues using it to track requests and bugs.</li>
+</ul></li>
+<li>A <a href="https://anaconda.org/">anaconda</a> account (optional)
+<ul>
+<li>This is optional but if you want to make your code available via conda you’ll need an account. Conda is a common standard for deploying bioinformatics packages to the greater community.</li>
+</ul></li>
+<li>A <a href="https://pypi.org/">pypi</a> account (optional)
+<ul>
+<li>This is optional but if you want to make your code available via pypi you’ll need an account. Pypi is a common standard for deploying python packages to the greater community.</li>
+</ul></li>
+</ul>
+</section>
+<section id="first-steps" class="level2">
+<h2 class="anchored" data-anchor-id="first-steps">First steps</h2>
+<p>Lets create a new repo on github and clone it to your local machine. I’ll be using the name <code>nbdev_startup</code> for this example. You can use any name you want but I recommend using something that is descriptive of the code you’re writing. I also recommend using the <code>nbdev</code> template when creating the repo. This will create a basic structure for you to start working with. If you don’t use the template you’ll have to create the structure yourself. This is not hard but it’s a bit more work. I’ll be using the template so I’ll be able to skip some steps.</p>
+<p>Install the dev env &gt; <code>mamba env create -p ./.venv --file conda.dev.env.yaml</code></p>
+<p>This will create a <code>.venv</code> folder in the root of the project. Activate it with <code>conda activate ./.venv</code>. You’ll also be wanting to add this file into a <code>.gitignore</code>, This will include all the packages you need to develop the project</p>
+<p>In this example:</p>
+<pre class="dotnetcli"><code>USER=kimleeng
+PROJECT_NAME=find_run_diff</code></pre>
+<p>Create a repo on github &gt; e.g.&nbsp;https://github.com/kimleeng/find_run_diff</p>
+<p>Do: <code>git init</code> <code>git remote add origin git@github.com:kimleeng/find_run_diff.git</code></p>
+<p>This will set some git parameters up so that when the <code>nbdev_new</code> command is run must values will be automatically inferred.</p>
+<p>Run command &gt; <code>nbdev_new</code></p>
+<p>It should return something like:</p>
+<pre class="dotnetcli"><code># settings.ini
+lib_name = find_run_diff # Automatically inferred from git
+user = kimleeng # Automatically inferred from git
+branch = master # Automatically inferred from git
+author = Kim Ng # Automatically inferred from git
+author_email = kimleeng@gmail.com # Automatically inferred from git
+keywords = nbdev # Automatically inferred from git
+# Please enter a value for description
+description =</code></pre>
+<p>For description describe what the software will do: &gt; e.g.&nbsp;<code>description = Checks two directories for subdirectories with minor name variations, the find the subdirectories which appear to be missing in the targer directory.</code></p>
+<p>And then it’ll finish with:</p>
+<pre class="dotnetcli"><code># settings.ini
+lib_name = find_run_diff # Automatically inferred from git
+user = kimleeng # Automatically inferred from git
+branch = master # Automatically inferred from git
+author = Kim Ng # Automatically inferred from git
+author_email = kimleeng@gmail.com # Automatically inferred from git
+keywords = nbdev # Automatically inferred from git
+# Please enter a value for description
+description = Checks two directories for subdirectories with minor name variations, the find the subdirectories which appear to be missing in the targer directory.
+repo = find_run_diff # Automatically inferred from git</code></pre>
+<p>From this it’ll create the following. The majority of these should not be interacted with at all.</p>
+<pre class="dotnetcli"><code>- .github
+    - workflows
+        - deploy.yaml
+        - test.yaml
+- find_run_diff
+    - __init__.py
+    - _modidx.py
+    - core.py
+- _quarto.yml
+- .gitignore # will have to add some additional values to this.
+- 00_core.ipynb # Main working file, note it generates core.py. If you create another .ipynb e.g. 01_test.ipynb it will generate test.py
+- index.ipynb # Generates the README.md from it's contents
+- LICENSE
+- MANIFEST.in
+- README.md
+- settings.ini # Requires some modifaction for entry points and libraries.
+- setup.py
+- styles.css</code></pre>
+<p>Now we add the following to the <code>.gitignore</code> file: &gt; <code>.venv</code></p>
+<p>Then commit eveything to the repo. Once this is done check your <code>Actions</code> on github. NBDev will automatically run its actions related to testing and deploying. One of the deployments is for the documentation. If your repo is a public one adjust the GitHub pages source setting to use <code>Deploy from a branch</code> and select the <code>gh-pages</code> branch. Once you save you should then have a page available. e.g.&nbsp;https://kimleeng.github.io/find_run_diff/.</p>
+<p>From here you’ll be able to start making your code.</p>
+</section>
+<section id="for-pypi-package-deployment." class="level2">
+<h2 class="anchored" data-anchor-id="for-pypi-package-deployment.">For PyPi package deployment.</h2>
+<p>Ensure you have a <code>~/.pypirc</code> file with a user based token for <a href="https://pypi.org/manage/account/">PyPi</a>. Once set you can use <code>nbdev_pypi</code> to automatically deploy there. Be sure to run <code>nbdev_bump_version</code> before running again.</p>
+</section>
+<section id="for-conda-package-deployment" class="level2">
+<h2 class="anchored" data-anchor-id="for-conda-package-deployment">For Conda package deployment</h2>
+<p>Run <code>nbdev_conda</code></p>
+</section>
+</section>
+<section id="flow-on-saving-a-notebook-change." class="level1">
+<h1>Flow on saving a notebook change.</h1>
+<p><code>nbdev_prepare</code></p>
+<p>on deploy</p>
+<blockquote class="blockquote">
+<p><code>nbdev_bump_version</code></p>
+<p><code>nbdev_prepare</code></p>
+<p><code>nbdev_pypi</code> Requirements here are assumed to be handled in pip.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><code>nbdev_conda</code></p>
+<p>Using settings.ini it’ll use requirements for checking. You will need to add alternative channels <code>conda config --add channels conda-forge</code> for it to build while looking at those locations as well</p>
+</blockquote>
+<blockquote class="blockquote">
+<p><code>nbdev_release_git</code></p>
+</blockquote>
+</section>
+<section id="using" class="level1">
+<h1>Using</h1>
+<p>https://nbdev.fast.ai/release.html</p>
+<p><code>nbdev_changelog</code> makes a chaneglog from the git repo’s issues. You’ll need a token in order to use this accordingly.</p>
+</section>
+<section id="recommended-default-dirs" class="level1">
+<h1>Recommended default dirs</h1>
+<pre class="dotnetcli"><code>./input/ # Used as a placeholder for running
+./output/ # Used as a placeholder for output
+- ./config/
+    - config.default.env
+    - config.env # in .gitignore
+./services/ # For use with systemd, this is intended for running and monitoring the task on a routine and automated basic.</code></pre>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
